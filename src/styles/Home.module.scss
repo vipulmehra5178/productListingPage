@@ -1,0 +1,737 @@
+.header {
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  text-align:center;
+  
+}
+
+.headerTitle {
+  font-size: 2.5rem; 
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif; 
+  background: linear-gradient(90deg, #322f30, #ff79a1);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative; 
+  letter-spacing: 2px;
+  transition: transform 0.3s ease, letter-spacing 0.3s ease; 
+  padding: 0.5rem 1rem; 
+  display: inline-block; 
+  text-align: center;
+}
+
+.headerTitle::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(249, 84, 139, 0.3) 0%, transparent 70%); 
+  opacity: 0; 
+  z-index: -1; 
+  transition: opacity 0.5s ease; 
+}
+.headerTitle:hover {
+  transform: scale(1.05);
+  letter-spacing: 3px; 
+}
+
+.headerTitle:hover::after {
+  opacity: 1; 
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .headerTitle {
+    font-size: 2rem; 
+    letter-spacing: 1.5px; 
+  }
+
+  .headerTitle:hover {
+    letter-spacing: 2.5px; 
+  }
+}
+
+
+@media (max-width: 640px) {
+  .headerTitle {
+    font-size: 1.5rem; 
+    letter-spacing: 1px; 
+    padding: 0.25rem 0.5rem; 
+  }
+
+  .headerTitle:hover {
+    letter-spacing: 2px; 
+  }
+}
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logoIcon img {
+  width: 24px;
+  height: 24px;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.topIcons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.authLink {
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+.authLink:hover {
+  color: #666;
+}
+
+.userName {
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+}
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid #E8ECD7;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.navBar a {text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  position: relative; 
+  transition: color 0.3s ease, transform 0.2s ease; 
+}
+
+.navBar a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #000;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 0.9rem;
+  color: #000;
+}
+
+.mainContent {
+  display: flex;
+  padding: 2rem;
+}
+
+.filterToggleWrapper {
+  margin-bottom: 1rem;
+}
+
+.filterToggleButton {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.filterToggleButton:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar {
+  width: fit-content;
+  max-width: 250px;
+  align-self: flex-start;
+  height: auto;
+  font-size: 0.85rem;
+  background-color: #fff;
+  color: #000;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0; 
+}
+
+.filterSection > div {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+
+.filterSection p {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filterSection label {
+  display: block;
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.filterSection label input {
+  margin-right: 0.5rem;
+}
+
+.filterSection .unselect {
+  color: #666;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.filterSection .unselect:hover {
+  color: #000;
+}
+
+/* Responsive Styles */
+
+/* Mobile (below 640px) */
+@media (max-width: 640px) {
+  .sidebar {
+    width: 100%;
+    max-width: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-height: 100vh;
+    height: auto; 
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Tablet (641px to 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .sidebar {
+    width: fit-content;
+    max-width: 200px;
+    align-self: flex-start;
+    height: auto; 
+    padding: 1rem;
+  }
+}
+
+.productsGridWrapper {
+  flex: 1;
+}
+
+.sortBar {
+  margin-bottom: 1rem;
+  text-align: right;
+}
+
+.sortBar label {
+  font-weight: bold;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.sortBar select {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.25rem;
+  font-size: 0.85rem;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  position: relative;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 280px;
+  height: 370px;
+  text-align: center;
+  background-color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  margin-bottom: 1rem;
+}
+
+.imageWrapper img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.overlay {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.info h4 {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.loginPrompt {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  border-top: 1px solid #333;
+  background-color: #000;
+  color: #fff;
+}
+
+.footerSection {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.footerSection h4 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.footerSection p {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.footerSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerSection ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footerSection ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.footerSection ul li a:hover {
+  text-decoration: underline;
+}
+
+.subscribe {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.subscribe input {
+  padding: 0.5rem;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 0.85rem;
+  width: 200px;
+}
+
+.subscribe input::placeholder {
+  color: #ccc;
+}
+
+.subscribe button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.subscribe button:hover {
+  background-color: #444;
+}
+
+.currency {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.currencyNote {
+  font-size: 0.75rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.socialIcons a {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.paymentIcons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.paymentIcons span {
+  font-size: 1.5rem;
+}
+
+.copyright {
+  text-align: center;
+  padding: 1rem;
+  background-color: #000;
+  color: #ccc;
+  font-size: 0.75rem;
+  border-top: 1px solid #333;
+}
+
+/* Responsive Styles */
+
+/* Mobile (below 640px) */
+@media (max-width: 640px) {
+  .topBar {
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+  }
+
+  .logoText {
+    font-size: 1.2rem;
+  }
+
+  .topIcons {
+    gap: 0.5rem;
+  }
+
+  .navBar {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.8rem;
+  }
+
+  .mainContent {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .filterToggleWrapper {
+    margin-bottom: 0.5rem;
+  }
+
+  .filterToggleButton {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .sidebar {
+    width: fit-content; 
+    max-width: 250px; 
+    align-self: flex-start; 
+    font-size: 0.85rem;
+    background-color: #fff;
+    color: #000;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .productsGridWrapper {
+    width: 100%;
+  }
+
+  .sortBar {
+    text-align: center;
+  }
+
+  .sortBar label {
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  .sortBar select {
+    font-size: 0.8rem;
+  }
+
+  .productsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+  }
+
+  .footerSection {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .subscribe {
+    flex-direction: column;
+  }
+
+  .subscribe input {
+    width: 100%;
+  }
+
+  .subscribe button {
+    width: 100%;
+  }
+}
+
+/* Tablet (640px to 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .topBar {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .logoText {
+    font-size: 1.3rem;
+  }
+
+  .navBar {
+    gap: 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    padding: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .mainContent {
+    padding: 1.5rem;
+  }
+
+  .sidebar {
+    width: 200px;
+    padding-right: 1.5rem;
+  }
+
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    padding: 2rem 1.5rem;
+  }
+
+  .footerSection {
+    flex: 1 1 45%;
+    margin-right: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .subscribe input {
+    width: 150px;
+  }
+}
+
+/* Styles for Login/Signup Forms */
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: #000;
+  color: #fff;
+  padding: 2rem;
+}
+
+.authContainer h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.authForm input {
+  padding: 0.5rem;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.authForm input::placeholder {
+  color: #ccc;
+}
+
+.authForm button {
+  padding: 0.5rem;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.authForm button:hover {
+  background-color: #444;
+}
+
+.authForm p {
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.authForm .authLink {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.authForm .authLink:hover {
+  color: #ccc;
+}
+
+.error {
+  color: #ff5555;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive styles for auth forms */
+@media (max-width: 640px) {
+  .authContainer {
+    padding: 1rem;
+  }
+
+  .authContainer h2 {
+    font-size: 1.2rem;
+  }
+
+  .authForm {
+    max-width: 100%;
+  }
+  @media (max-width: 640px) {
+    .sidebar {
+      width: 100%; /* Full width on mobile as per original design */
+      max-width: none; /* Remove max-width constraint on mobile */
+      position: fixed;
+      top: 0;
+      left: 0;
+      max-height: 100vh; /* Ensures it doesn't exceed viewport height */
+      overflow-y: auto; /* Allows scrolling if content overflows */
+      z-index: 1000;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
