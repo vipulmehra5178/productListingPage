@@ -1,23 +1,22 @@
 .header {
   border-bottom: 1px solid #eee;
   background-color: #fff;
-  text-align:center;
-  
+  text-align: center;
 }
 
 .headerTitle {
-  font-size: 2.5rem; 
+  font-size: 2.5rem;
   font-weight: 800;
-  font-family: 'Poppins', sans-serif; 
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(90deg, #322f30, #ff79a1);
-  -webkit-background-clip: text; 
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  position: relative; 
+  position: relative;
   letter-spacing: 2px;
-  transition: transform 0.3s ease, letter-spacing 0.3s ease; 
-  padding: 0.5rem 1rem; 
-  display: inline-block; 
+  transition: transform 0.3s ease, letter-spacing 0.3s ease;
+  padding: 0.5rem 1rem;
+  display: inline-block;
   text-align: center;
 }
 
@@ -28,42 +27,44 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: radial-gradient(circle, rgba(249, 84, 139, 0.3) 0%, transparent 70%); 
-  opacity: 0; 
-  z-index: -1; 
-  transition: opacity 0.5s ease; 
+  background: radial-gradient(circle, rgba(249, 84, 139, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.5s ease;
 }
+
 .headerTitle:hover {
   transform: scale(1.05);
-  letter-spacing: 3px; 
+  letter-spacing: 3px;
 }
 
 .headerTitle:hover::after {
-  opacity: 1; 
+  opacity: 1;
 }
+
 @media (min-width: 641px) and (max-width: 1024px) {
   .headerTitle {
-    font-size: 2rem; 
-    letter-spacing: 1.5px; 
+    font-size: 2rem;
+    letter-spacing: 1.5px;
   }
 
   .headerTitle:hover {
-    letter-spacing: 2.5px; 
+    letter-spacing: 2.5px;
   }
 }
-
 
 @media (max-width: 640px) {
   .headerTitle {
-    font-size: 1.5rem; 
-    letter-spacing: 1px; 
-    padding: 0.25rem 0.5rem; 
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.5rem;
   }
 
   .headerTitle:hover {
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
   }
 }
+
 .topBar {
   display: flex;
   justify-content: space-between;
@@ -119,11 +120,12 @@
   font-size: 0.9rem;
 }
 
-.navBar a {text-decoration: none;
+.navBar a {
+  text-decoration: none;
   font-weight: bold;
   font-size: 0.9rem;
-  position: relative; 
-  transition: color 0.3s ease, transform 0.2s ease; 
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .navBar a:hover {
@@ -133,8 +135,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  color: #000;
 }
 
 .hero {
@@ -190,12 +190,48 @@
   border-radius: 8px;
 }
 
+.sidebarOpen {
+  display: block; /* Show sidebar when toggled */
+}
+
+/* Hide sidebar by default on mobile */
+@media (max-width: 640px) {
+  .sidebar {
+    display: none; /* Hidden by default on mobile */
+  }
+
+  .sidebarOpen {
+    display: block;
+    width: 100%;
+    max-width: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-height: 100vh;
+    height: auto;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .sidebar {
+    width: fit-content;
+    max-width: 200px;
+    align-self: flex-start;
+    height: auto;
+    padding: 1rem;
+  }
+}
+
 .filterSection {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 2rem;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .filterSection > div {
@@ -232,36 +268,6 @@
 
 .filterSection .unselect:hover {
   color: #000;
-}
-
-/* Responsive Styles */
-
-/* Mobile (below 640px) */
-@media (max-width: 640px) {
-  .sidebar {
-    width: 100%;
-    max-width: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    max-height: 100vh;
-    height: auto; 
-    overflow-y: auto;
-    z-index: 1000;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-}
-
-/* Tablet (641px to 1024px) */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .sidebar {
-    width: fit-content;
-    max-width: 200px;
-    align-self: flex-start;
-    height: auto; 
-    padding: 1rem;
-  }
 }
 
 .productsGridWrapper {
@@ -527,17 +533,6 @@
     font-size: 0.9rem;
   }
 
-  .sidebar {
-    width: fit-content; 
-    max-width: 250px; 
-    align-self: flex-start; 
-    font-size: 0.85rem;
-    background-color: #fff;
-    color: #000;
-    padding: 1rem;
-    border-radius: 8px;
-  }
-
   .productsGridWrapper {
     width: 100%;
   }
@@ -583,7 +578,7 @@
   }
 }
 
-/* Tablet (640px to 1024px) */
+/* Tablet (641px to 1024px) */
 @media (min-width: 641px) and (max-width: 1024px) {
   .topBar {
     padding: 0.75rem 1.5rem;
@@ -719,19 +714,5 @@
 
   .authForm {
     max-width: 100%;
-  }
-  @media (max-width: 640px) {
-    .sidebar {
-      width: 100%; /* Full width on mobile as per original design */
-      max-width: none; /* Remove max-width constraint on mobile */
-      position: fixed;
-      top: 0;
-      left: 0;
-      max-height: 100vh; /* Ensures it doesn't exceed viewport height */
-      overflow-y: auto; /* Allows scrolling if content overflows */
-      z-index: 1000;
-      padding: 1rem;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
   }
 }
