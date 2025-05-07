@@ -1,10 +1,17 @@
 import { useContext } from 'react';
+import { useRouter } from 'next/router'; 
 import { AuthContext } from '../context/AuthContext';
 import styles from './ProductCard.module.scss';
 
 export default function ProductCard({ product }) {
   const { user } = useContext(AuthContext);
-  const isOutOfStock = product.rating.count < 20;
+  const router = useRouter();
+    const isOutOfStock = product.rating.count < 20;
+
+    const handleLoginRedirect = (e) => {
+      e.preventDefault();
+      router.push('/login'); // ✅ route to login page
+      };
 
   return (
     <div className={styles.card}>
@@ -17,7 +24,9 @@ export default function ProductCard({ product }) {
         {user ? (
           <p className={styles.productPrice}>${product.price.toFixed(2)}</p>
         ) : (
-          <p className={styles.loginPrompt}>Login to see price</p>
+          <a className={styles.loginPrompt} onClick={handleLoginRedirect}>
+            Login to see price
+          </a>
         )}
       </div>
     </div>
